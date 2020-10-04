@@ -24,9 +24,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 import java.io.File;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,9 +34,9 @@ import java.util.List;
  * README generator.
  */
 
-public final class ReadMe
+public final class ReadMeMain
 {
-  private ReadMe()
+  private ReadMeMain()
   {
 
   }
@@ -56,44 +56,29 @@ public final class ReadMe
     final var projectName =
       retrieveOne(document, "/project/name").getTextContent().trim();
     final var codacyId =
-      retrieveOne(document, "/project/properties/com.codacy.id").getTextContent().trim();
+      retrieveOne(
+        document,
+        "/project/properties/com.codacy.id").getTextContent().trim();
 
-    final var nameParts = List.of(projectName.split("\\."));
-    final var shortName = nameParts.get(nameParts.size() - 1);
+    final var nameParts =
+      List.of(projectName.split("\\."));
+    final var shortName =
+      nameParts.get(nameParts.size() - 1);
 
-    System.out.printf("%s\n", shortName);
-    System.out.printf("===\n");
-    System.out.printf("\n");
-    System.out.printf(
-      "[![Travis](https://img.shields.io/travis/io7m/%s.png?style=flat-square)](https://travis-ci.org/io7m/%s)\n",
-      shortName,
-      shortName);
-    System.out.printf(
-      "[![Maven Central](https://img.shields.io/maven-central/v/%s/%s.png?style=flat-square)](http://search.maven.org/#search%%7Cga%%7C1%%7Cg%%3A%%22%s%%22)\n",
-      projectName,
-      projectName,
-      projectName);
-    System.out.printf(
-      "[![Maven Central (snapshot)](https://img.shields.io/nexus/s/https/oss.sonatype.org/%s/%s.svg?style=flat-square)](https://oss.sonatype.org/content/repositories/snapshots/com/io7m/%s/)\n",
-      projectName,
-      projectName,
-      shortName);
-    System.out.printf(
-      "[![Codacy grade](https://img.shields.io/codacy/grade/%s.png?style=flat-square)](https://www.codacy.com/app/github_79/%s)\n",
-      codacyId,
-      shortName);
-    System.out.printf(
-      "[![Codecov](https://img.shields.io/codecov/c/github/io7m/%s.png?style=flat-square)](https://codecov.io/gh/io7m/%s)\n",
-      shortName,
-      shortName);
+    final var resources =
+      RMStringResources.ofXMLResource(
+        ReadMeMain.class,
+        "/com/io7m/readme/Strings.xml");
 
-    System.out.printf("\n");
-    System.out.printf("![%s](./src/site/resources/%s.jpg?raw=true)\n", shortName, shortName);
-    System.out.printf("\n");
+    System.out.println(MessageFormat.format(
+      resources.getString("readmeTemplate"),
+      projectName,
+      shortName
+    ));
 
     final var extra = Paths.get("README.in");
     if (Files.isRegularFile(extra)) {
-      System.out.println(new String(Files.readAllBytes(extra), StandardCharsets.UTF_8));
+      System.out.println(Files.readString(extra));
     }
   }
 
@@ -103,7 +88,10 @@ public final class ReadMe
     throws Exception
   {
     final var xPath = XPathFactory.newInstance().newXPath();
-    final var nodeList = (NodeList) xPath.evaluate(expression, document, XPathConstants.NODESET);
+    final var nodeList = (NodeList) xPath.evaluate(
+      expression,
+      document,
+      XPathConstants.NODESET);
     final var elements = new ArrayList<Element>(nodeList.getLength());
     for (var index = 0; index < nodeList.getLength(); ++index) {
       elements.add((Element) nodeList.item(index));

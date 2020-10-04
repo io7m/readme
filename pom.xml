@@ -7,12 +7,12 @@
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
     <artifactId>com.io7m.primogenitor.full</artifactId>
-    <version>3.1.0</version>
+    <version>6.0.0-beta0004</version>
   </parent>
 
   <groupId>com.io7m.readme</groupId>
   <artifactId>com.io7m.readme</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
 
   <name>com.io7m.readme</name>
@@ -69,8 +69,8 @@
   </distributionManagement>
 
   <ciManagement>
-    <system>Travis CI</system>
-    <url>https://travis-ci.org/io7m/readme</url>
+    <system>GitHub Actions</system>
+    <url>https://github.com/io7m/readme/actions</url>
   </ciManagement>
 
   <build>
@@ -94,7 +94,7 @@
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <manifestEntries>
-                    <Main-Class>com.io7m.readme.ReadMe</Main-Class>
+                    <Main-Class>com.io7m.readme.ReadMeMain</Main-Class>
                   </manifestEntries>
                 </transformer>
               </transformers>

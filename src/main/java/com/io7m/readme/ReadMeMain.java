@@ -55,10 +55,6 @@ public final class ReadMeMain
     final var document = parsePOM();
     final var projectName =
       retrieveOne(document, "/project/name").getTextContent().trim();
-    final var codacyId =
-      retrieveOne(
-        document,
-        "/project/properties/com.codacy.id").getTextContent().trim();
 
     final var nameParts =
       List.of(projectName.split("\\."));

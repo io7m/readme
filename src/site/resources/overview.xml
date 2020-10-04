@@ -12,10 +12,6 @@
       <img src="https://img.shields.io/nexus/s/https/oss.sonatype.org/com.io7m.readme/com.io7m.readme.svg?style=flat-square)"
            alt="Maven Central snapshots"/>
     </a>
-    <a href="https://www.codacy.com/app/github_79/readme">
-      <img src="https://img.shields.io/codacy/grade/a928810397a64528ae88e95dc7ff6d8c.png?style=flat-square"
-           alt="Codacy"/>
-    </a>
     <a href="https://codecov.io/gh/io7m/readme">
       <img src="https://img.shields.io/codecov/c/github/io7m/readme.png?style=flat-square"
            alt="Codecov"/>

@@ -19,13 +19,16 @@ package com.io7m.readme;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
-import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Set;
+
+/**
+ * The string resources.
+ */
 
 public final class RMStringResources
 {
@@ -36,6 +39,14 @@ public final class RMStringResources
   {
     this.resources = Objects.requireNonNull(inResources, "inResources");
   }
+
+  /**
+   * Create string resources from the given stream.
+   *
+   * @param stream The input stream
+   *
+   * @return The string resources
+   */
 
   public static ResourceBundle ofXML(
     final InputStream stream)
@@ -49,6 +60,15 @@ public final class RMStringResources
     }
   }
 
+  /**
+   * Create string resources from the given class and resource name.
+   *
+   * @param clazz    The class
+   * @param resource The resource name
+   *
+   * @return The string resources
+   */
+
   public static ResourceBundle ofXMLResource(
     final Class<?> clazz,
     final String resource)
@@ -58,20 +78,6 @@ public final class RMStringResources
     } catch (final IOException e) {
       throw new UncheckedIOException(e);
     }
-  }
-
-  public ResourceBundle resources()
-  {
-    return this.resources;
-  }
-
-  public String format(
-    final String id,
-    final Object... args)
-  {
-    Objects.requireNonNull(id, "id");
-    Objects.requireNonNull(args, "args");
-    return MessageFormat.format(this.resources.getString(id), args);
   }
 
   private static final class XMLResourceBundle extends ResourceBundle

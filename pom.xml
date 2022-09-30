@@ -7,17 +7,17 @@
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
     <artifactId>com.io7m.primogenitor.full</artifactId>
-    <version>6.0.0-beta0004</version>
+    <version>7.1.1</version>
   </parent>
 
   <groupId>com.io7m.readme</groupId>
   <artifactId>com.io7m.readme</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
   <packaging>jar</packaging>
 
   <name>com.io7m.readme</name>
   <description>README generator</description>
-  <url>http://github.com/io7m/readme</url>
+  <url>https://github.com/io7m/readme</url>
 
   <properties>
     <io7m.api.previousVersion>0.0.2</io7m.api.previousVersion>
@@ -26,7 +26,7 @@
   <licenses>
     <license>
       <name>ISC License</name>
-      <url>http://io7m.com/license/isc.txt</url>
+      <url>https://www.io7m.com/license/isc.txt</url>
     </license>
   </licenses>
 
@@ -42,12 +42,12 @@
       <id>io7m</id>
       <name>io7m</name>
       <email>code@io7m.com</email>
-      <url>http://io7m.com</url>
+      <url>https://www.io7m.com</url>
     </developer>
   </developers>
 
   <issueManagement>
-    <url>http://github.com/io7m/readme/issues</url>
+    <url>https://github.com/io7m/readme/issues</url>
     <system>GitHub Issues</system>
   </issueManagement>
 
@@ -59,11 +59,11 @@
     </site>
     <repository>
       <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
     <snapshotRepository>
       <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 

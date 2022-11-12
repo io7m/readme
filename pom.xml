@@ -7,12 +7,12 @@
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
     <artifactId>com.io7m.primogenitor.full</artifactId>
-    <version>7.1.1</version>
+    <version>7.3.0</version>
   </parent>
 
   <groupId>com.io7m.readme</groupId>
   <artifactId>com.io7m.readme</artifactId>
-  <version>0.0.4</version>
+  <version>0.0.5</version>
   <packaging>jar</packaging>
 
   <name>com.io7m.readme</name>

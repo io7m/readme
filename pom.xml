@@ -12,7 +12,7 @@
 
   <groupId>com.io7m.readme</groupId>
   <artifactId>com.io7m.readme</artifactId>
-  <version>0.0.5-SNAPSHOT</version>
+  <version>0.0.5</version>
   <packaging>jar</packaging>
 
   <name>com.io7m.readme</name>
